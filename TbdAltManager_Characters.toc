@@ -1,5 +1,5 @@
 ## Name: TbdAltManager_Characters
-## Version: 0.21
+## Version: 1.0
 ## Interface: 110107
 ## Notes: Character module for TbdAltManager
 ## SavedVariables: TbdAltManager_Characters_SavedVariables

@@ -5,10 +5,9 @@ name: Package and release
 # this is typically only when we create a new tag.
 # make sure your tags are annotated!
 on:
-  workflow_dispatch:
-    push:
-      tags:
-        - '**'
+  push:
+    tags:
+      - '**'
 
 # a workflow is built up as jobs, and within these jobs are steps
 jobs:
