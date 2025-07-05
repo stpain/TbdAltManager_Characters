@@ -1,0 +1,250 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+https://raw.githubusercontent.com/Meorawr/wow-ui-schema/main/UI.xsd">
+
+
+
+    <Frame name="TbdAltManagerCharacterModuleListviewItemTemplate" mixin="TbdAltManagerCharacterModuleListviewItemMixin" virtual="true">
+
+        <Layers>
+            <Layer level="BACKGROUND">
+                <Texture parentKey="Background">
+                    <Anchors>
+                        <Anchor point="TOPLEFT" x="20" y="0"/>
+                        <Anchor point="BOTTOMRIGHT" x="0" y="0"/>
+                    </Anchors>
+                </Texture>
+            </Layer>
+
+            <Layer level="ARTWORK">
+                <Texture parentKey="Portrait">
+                    <Size x="36" y="36"/>
+                    <Anchors>
+                        <Anchor point="LEFT" x="0" y="0"/>
+                    </Anchors>
+                </Texture>
+                <MaskTexture parentKey="PortraitMask" file="Interface/CHARACTERFRAME/TempPortraitAlphaMask" hWrapMode="CLAMPTOBLACKADDITIVE" vWrapMode="CLAMPTOBLACKADDITIVE">
+                    <Size x="36" y="36"/>
+                    <Anchors>
+                        <Anchor point="LEFT" x="2" y="0"/>
+                    </Anchors>
+                    <MaskedTextures>
+                        <MaskedTexture childKey="Portrait"/>
+                    </MaskedTextures>
+                </MaskTexture>
+            </Layer>
+
+            <Layer level="OVERLAY">
+
+                <Texture parentKey="PortraitBorder" atlas="auctionhouse-itemicon-border-white">
+                    <Size x="50" y="50"/>
+                    <Anchors>
+                        <Anchor point="LEFT" x="-5" y="0"/>
+                    </Anchors>
+                </Texture>
+
+                <FontString parentKey="Name" inherits="GameFontWhite" justifyH="LEFT">
+                    <Anchors>
+                        <Anchor point="TOPLEFT" relativeKey="$parent.Portrait" relativePoint="TOPRIGHT" x="4" y="0"/>
+                        <Anchor point="BOTTOMLEFT" relativeKey="$parent.Portrait" relativePoint="BOTTOMRIGHT" x="4" y="0"/>
+                    </Anchors>
+                    <Size x="120"/>
+                </FontString>
+                <FontString parentKey="Level" inherits="GameFontWhite" justifyH="LEFT">
+                    <Anchors>
+                        <!-- <Anchor point="TOPLEFT" relativeKey="$parent.name" relativePoint="TOPRIGHT" x="0" y="-4"/> -->
+                        <Anchor point="BOTTOMLEFT" relativeKey="$parent.Name" relativePoint="BOTTOMRIGHT" x="0" y="4"/>
+                    </Anchors>
+                    <Size x="110"/>
+                </FontString>
+            </Layer>
+        </Layers>
+        <Frames>
+            <StatusBar parentKey="LevelBar" inherits="TbdStatusBarTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeKey="$parent.Name" relativePoint="TOPRIGHT" x="0" y="-4"/>
+                    <!-- <Anchor point="BOTTOMLEFT" relativeKey="$parent.name" relativePoint="BOTTOMRIGHT" x="0" y="4"/> -->
+                </Anchors>
+                <Size x="100" y="14"/>
+                <BarColor r="0.2" g="0.2" b="0.7"/>
+            </StatusBar>
+            <Button parentKey="ClassIcon">
+                <Size x="32" y="32"/>
+                <Anchors>
+                    <Anchor point="BOTTOMLEFT" relativeKey="$parent.Level" relativePoint="BOTTOMRIGHT" x="2" y="0"/>
+                </Anchors>
+                <Layers>
+                    <Layer level="ARTWORK">
+                        <Texture parentKey="Icon">
+                            <Anchors>
+                                <Anchor point="TOPLEFT" x="0" y="0"/>
+                                <Anchor point="BOTTOMRIGHT" x="0" y="0"/>
+                            </Anchors>
+                        </Texture>
+                        <MaskTexture parentKey="IconMask" file="Interface/CHARACTERFRAME/TempPortraitAlphaMask" hWrapMode="CLAMPTOBLACKADDITIVE" vWrapMode="CLAMPTOBLACKADDITIVE">
+                            <Anchors>
+                                <Anchor point="TOPLEFT" x="0" y="0"/>
+                                <Anchor point="BOTTOMRIGHT" x="0" y="0"/>
+                            </Anchors>
+                            <MaskedTextures>
+                                <MaskedTexture childKey="Icon"/>
+                            </MaskedTextures>
+                        </MaskTexture>
+                    </Layer>
+                    <Layer level="ARTWORK" textureSubLevel="1">
+                        <Texture parentKey="Border" atlas="auctionhouse-itemicon-border-white">
+                            <Anchors>
+                                <Anchor point="TOPLEFT" x="-8" y="8"/>
+                                <Anchor point="BOTTOMRIGHT" x="8" y="-8"/>
+                            </Anchors>
+                        </Texture>
+                    </Layer>
+                    <Layer level="ARTWORK" textureSubLevel="2">
+                        <Texture parentKey="RoleIcon" atlas="UI-LFG-RoleIcon-Generic-Micro">
+                            <Size x="20" y="20"/>
+                            <Anchors>
+                                <Anchor point="BOTTOMRIGHT" x="6" y="-4"/>
+                            </Anchors>
+                        </Texture>
+                    </Layer>
+                </Layers>
+                <Scripts>
+                    <OnLeave>
+                        GameTooltip_SetDefaultAnchor(GameTooltip, UIParent)
+                    </OnLeave>
+                </Scripts>
+            </Button>
+        </Frames>
+        <Layers>
+            <Layer level="OVERLAY">
+                <FontString parentKey="Class" inherits="GameFontWhite" justifyH="LEFT" wordwrap="true">
+                    <Anchors>
+                        <Anchor point="LEFT" relativeKey="$parent.ClassIcon" relativePoint="RIGHT" x="8" y="0"/>
+                    </Anchors>
+                    <Size x="110" y="40"/>
+                </FontString>
+                <FontString parentKey="Ilvl" inherits="GameFontWhite" justifyH="LEFT">
+                    <Anchors>
+                        <Anchor point="LEFT" relativeKey="$parent.Class" relativePoint="RIGHT" x="0" y="0"/>
+                    </Anchors>
+                    <Size x="90" y="40"/>
+                </FontString>
+                <FontString parentKey="Profession1" inherits="GameFontWhite" justifyH="LEFT">
+                    <Anchors>
+                        <Anchor point="TOPLEFT" relativeKey="$parent.Ilvl" relativePoint="TOPRIGHT" x="0" y="0"/>
+                        <!-- <Anchor point="BOTTOMLEFT" relativeKey="$parent.class" relativePoint="BOTTOMRIGHT" x="0" y="0"/> -->
+                    </Anchors>
+                    <Size x="120" y="20"/>
+                </FontString>
+                <FontString parentKey="Profession2" inherits="GameFontWhite" justifyH="LEFT">
+                    <Anchors>
+                        <!-- <Anchor point="TOPLEFT" relativeKey="$parent.profession1" relativePoint="TOPRIGHT" x="0" y="0"/> -->
+                        <Anchor point="BOTTOMLEFT" relativeKey="$parent.Ilvl" relativePoint="BOTTOMRIGHT" x="0" y="0"/>
+                    </Anchors>
+                    <Size x="120" y="20"/>
+                </FontString>
+                <FontString parentKey="Location" inherits="GameFontWhite" justifyH="LEFT">
+                    <Anchors>
+                        <Anchor point="TOPLEFT" relativeKey="$parent.Profession1" relativePoint="TOPRIGHT" x="0" y="0"/>
+                        <Anchor point="BOTTOMLEFT" relativeKey="$parent.Profession2" relativePoint="BOTTOMRIGHT" x="0" y="0"/>
+                    </Anchors>
+                    <Size x="160"/>
+                </FontString>
+                <FontString parentKey="SessionTimes" inherits="GameFontWhite" justifyH="LEFT">
+                    <Anchors>
+                        <Anchor point="TOPLEFT" relativeKey="$parent.Location" relativePoint="TOPRIGHT" x="0" y="0"/>
+                        <Anchor point="BOTTOMLEFT" relativeKey="$parent.Location" relativePoint="BOTTOMRIGHT" x="0" y="0"/>
+                    </Anchors>
+                    <Size x="120"/>
+                </FontString>
+                <FontString parentKey="Gold" inherits="GameFontWhite" justifyH="RIGHT">
+                    <Anchors>
+                        <Anchor point="LEFT" relativeKey="$parent.SessionTimes" relativePoint="RIGHT" x="0" y="0"/>
+                        <Anchor point="RIGHT" x="0" y="0"/>
+                    </Anchors>
+                    <Size x="200" y="40"/>
+                </FontString>
+            </Layer>
+        </Layers>
+        <Scripts>
+            <OnLoad method="OnLoad"/>
+            <OnMouseDown method="OnMouseDown"/>
+            <OnUpdate method="OnUpdate"/>
+        </Scripts>
+    </Frame>
+
+
+    <Frame name="TbdAltManagerCharactersUi" mixin="TbdAltManagerCharactersMixin">
+
+        <Layers>
+            <Layer level="BACKGROUND">
+                <Texture parentKey="background" setAllPoints="true">
+
+                </Texture>
+            </Layer>
+        </Layers>
+
+        <Frames>
+
+            <Frame parentKey="listview" inherits="TBDListviewTemplate">
+                <Size x="260"/>
+                <Anchors>
+                    <Anchor point="TOPLEFT" x="4" y="-28"/>
+                    <Anchor point="BOTTOMRIGHT" x="-4" y="4"/>
+                </Anchors>
+                <KeyValues>
+                    <KeyValue key="itemTemplate" value="TbdAltManagerCharacterModuleListviewItemTemplate" type="string"/>
+                    <KeyValue key="elementHeight" value="40" type="number"/>
+                    <!-- <KeyValue key="enableSelection" value="true" type="boolean"/> -->
+                </KeyValues>
+            </Frame>
+
+            <Button parentKey="sortName" inherits="UIPanelButtonTemplate" text="NAME">
+                <Anchors>
+                    <Anchor point="BOTTOMLEFT" relativeKey="$parent.listview" relativePoint="TOPLEFT" x="0" y="0"/>
+                </Anchors>
+                <Size x="160" y="24"/>
+            </Button>
+            <Button parentKey="sortLevel" inherits="UIPanelButtonTemplate" text="LEVEL">
+                <Anchors>
+                    <Anchor point="LEFT" relativeKey="$parent.sortName" relativePoint="RIGHT" x="0" y="0"/>
+                </Anchors>
+                <Size x="110" y="24"/>
+            </Button>
+            <Button parentKey="sortClass" inherits="UIPanelButtonTemplate" text="Class">
+                <Anchors>
+                    <Anchor point="LEFT" relativeKey="$parent.sortLevel" relativePoint="RIGHT" x="0" y="0"/>
+                </Anchors>
+                <Size x="150" y="24"/>
+            </Button>
+            <Button parentKey="sortItemLevel" inherits="UIPanelButtonTemplate" text="iLvl">
+                <Anchors>
+                    <Anchor point="LEFT" relativeKey="$parent.sortClass" relativePoint="RIGHT" x="0" y="0"/>
+                </Anchors>
+                <Size x="90" y="24"/>
+            </Button>
+            <Button parentKey="sortTradeSkills" inherits="UIPanelButtonTemplate" text="Professions">
+                <Anchors>
+                    <Anchor point="LEFT" relativeKey="$parent.sortItemLevel" relativePoint="RIGHT" x="0" y="0"/>
+                </Anchors>
+                <Size x="120" y="24"/>
+            </Button>
+            <Button parentKey="sortLocation" inherits="UIPanelButtonTemplate" text="Location">
+                <Anchors>
+                    <Anchor point="LEFT" relativeKey="$parent.sortTradeSkills" relativePoint="RIGHT" x="0" y="0"/>
+                </Anchors>
+                <Size x="160" y="24"/>
+            </Button>
+            <Button parentKey="sortLastLogin" inherits="UIPanelButtonTemplate" text="Last login">
+                <Anchors>
+                    <Anchor point="LEFT" relativeKey="$parent.sortLocation" relativePoint="RIGHT" x="0" y="0"/>
+                </Anchors>
+                <Size x="120" y="24"/>
+            </Button>
+        </Frames>
+
+        <Scripts>
+            <OnLoad method="OnLoad"/>
+        </Scripts>
+    </Frame>
+
+</Ui>

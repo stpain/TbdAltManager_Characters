@@ -1,9 +1,9 @@
 ## Name: TbdAltManager_Characters
 ## Version: 0.11
-## Interface: 110107
+## Interface: 11507
 ## Notes: Character module for TbdAltManager
 ## SavedVariables: TbdAltManager_Characters_SavedVariables
-## Dependencies: TbdAltManager, TbdWidgets
+## Dependencies: TbdAltManager
 ## Group: TbdAltManager
 
 ## X-Curse-Project-ID: 1111307
